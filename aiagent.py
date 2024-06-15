@@ -65,11 +65,11 @@ class Agent:
         return np.array(state, dtype=int)
 
     def remember(self, state, action, reward, next_state, done):
-        self.memory.append((state, action, reward, next_state, done))  # popleft if MAX_MEMORY is reached
+        self.memory.append((state, action, reward, next_state, done)) 
 
     def train_long_memory(self):
         if len(self.memory) > BATCH_SIZE:
-            mini_sample = random.sample(self.memory, BATCH_SIZE)  # list of tuples
+            mini_sample = random.sample(self.memory, BATCH_SIZE) 
         else:
             mini_sample = self.memory
 
